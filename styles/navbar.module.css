@@ -1,0 +1,26 @@
+.nav_ul{
+    display: table;
+    margin: 0rem 0rem 0rem 3rem;
+    padding: 0 ;
+    width: 20%;
+    text-align: left;
+}
+
+.nav_li{
+    display: table-cell;
+    min-width: 30px;
+    text-align: center;
+}
+
+.currentLink{
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.link:hover{
+    color: black;
+}
+
+.link{
+    color: rgb(110, 108, 108);
+}

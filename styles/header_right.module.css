@@ -1,0 +1,99 @@
+.header_right {
+    width: 40%;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.header_right_ul{
+    display: table;
+    margin: 0.5rem 0rem 0rem 3rem;
+    width: 20%;
+    text-align: left;
+}
+
+.header_right_li{
+    display: table-cell;
+    min-width: 30px;
+    color: black;
+    text-align: center;
+}
+
+.header_right_btn{
+    color: white;
+    background-color: rgb(141, 141, 141);
+    text-align: left;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-left: 1rem;
+}
+
+.bellIcon{
+    text-align: center;
+    margin-left: 1rem;
+    color: rgb(65, 64, 64);
+    height: 20px;
+}
+
+.userIcon{
+    text-align: center;
+    margin-left: 1rem;
+    color: rgb(65, 64, 64);
+    height: 20px;
+}
+
+.search_container{
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    padding: 3px 10px;
+    margin-left: 1rem;
+    border-radius: 20px;
+    height: 2.2em;
+    width: 250px;
+    overflow: hidden;
+    background: #e5e5e5;
+}
+
+.search_container input[type="search"]{
+    border: none;
+    height: 2.0em;
+    background: #e5e5e5;
+}
+
+.search_container input[type="search"]:focus {
+    outline: 0;
+}
+
+.searchIcon{
+    color: rgb(183, 181, 181);
+    size: 5px;
+    margin-right: 1rem;
+}
+
+.penIcon{
+    color: white;
+    size: 5px;
+    margin: 0rem 0.5rem 0rem 0.5rem;
+}
+
+.search_container input[type="submit"]{
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 1.3em;
+    border: none;
+    background: none;
+    color: rgb(183, 181, 181);
+    position: absolute;
+    height: 2.5em;
+    right: 8px;
+    top: -10px;
+    outline : none;
+}
+
+.search_container ::-webkit-input-placeholder {
+    color: rgb(183, 181, 181);
+}
+  
+  
