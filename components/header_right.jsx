@@ -8,22 +8,26 @@ const HeaderRight = () => {
     <>
       <div className={styles.header_right}>
         <ul className={styles.header_right_ul}>
+            {/* 検索 */}
             <li className={styles.header_right_li}>
                 <Link href="#" className={styles.search_container}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.searchIcon} />
                     <input type="search" size="25" placeholder="キーワードや名前で検索" />
                 </Link>
             </li>
+            {/* お知らせ */}
             <li className={styles.header_right_li}>
                 <Link href="#">
                     <FontAwesomeIcon icon={faBell} className={styles.bellIcon} />
                 </Link>
             </li>
+            {/* プロフィール */}
             <li className={styles.header_right_li}>
                 <Link href="#">
                     <FontAwesomeIcon icon={faUser} className={styles.userIcon} />
                 </Link>
             </li>
+            {/* 投稿 */}
             <li className={styles.header_right_li}>
                 <button type="button" className={styles.header_right_btn} onClick={""}>
                     <FontAwesomeIcon icon={faPen} className={styles.penIcon} />
