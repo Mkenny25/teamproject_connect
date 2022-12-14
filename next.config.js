@@ -3,6 +3,7 @@ module.exports = {
     images: {
         // domains: ["www.notion.so"],
         domains: ["books.google.com"],
+        domains: ["cdn.pixabay.com"],
         // remotePatterns: [{
         //     // protocol: 'https',
         //     hostname: 'books.google.com',
