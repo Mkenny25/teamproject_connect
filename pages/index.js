@@ -27,19 +27,27 @@ export default function MyApp({ posts }) {
               <li key={post.id} className={styles.post}>
                 <div className={styles.imgWrapper}>
                     <Image 
-                      src={post.cover.external.url}
-                      alt="bookImg" 
-                      width={200} 
-                      height={200} 
+                      // className={styles.}
+                      src={post.properties.PICTURE.files[0].external.url}
+                      alt="bookImg"
+                      layout="fill" 
+                      // width={200} 
+                      // height={250} 
                     />
                 </div>
-                <Link href={`/${post.id}`}>
-                    <div>
-                        <p><Text text={post.properties.Name.title} /></p>
-                        <p><Text text={post.properties.AFFLIATION.rich_text} /></p>
-                        <p><Text text={post.properties.POSOTION.rich_text} /></p>
-                        <p>{date}</p>
-                        <p><Text text={post.properties.MAIL.rich_text} /></p>
+                <Link href={`/${post.id}`} className={styles.link}>
+                    <div className={styles.nameInfo}>
+                        <p><Text text={post.properties.NAME_KN.rich_text} /></p>
+                        <h3><Text text={post.properties.Name.title} /></h3>
+                    </div>
+                    <div className={styles.roleInfo}>
+                      <p>
+                          <Text text={post.properties.AFFLIATION.rich_text} />
+                          &nbsp; / &nbsp;
+                          <Text text={post.properties.POSOTION.rich_text} />
+                      </p>
+                        {/* <p>{date}</p> */}
+                        {/* <p><Text text={post.properties.MAIL.rich_text} /></p> */}
                     </div>
                 </Link>
               </li>

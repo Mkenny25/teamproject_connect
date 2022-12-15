@@ -75,10 +75,18 @@
     box-shadow: 10px 10px 10px rgba(0,0,0,0.6);
 }
 
+.personImgWrapper {
+    width: 30%;
+    height: 40%;
+    position: relative !important;
+}
+
 .personImg {
-    margin-top: 0;
-    /* margin-bottom: 12px; */
-    border-radius: 30%;
+    /* width:50px;
+	height:50px; */
+	object-fit:cover;
+	border-radius:50%;
+	object-position:0px 0px;
 }
 
 .warehouseTitle {

@@ -11,10 +11,12 @@ import { faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 export const databaseId = process.env.NOTION_DATABASE_ID;
 export const databaseId_wareHouse = process.env.NOTION_DATABASE_ID_WAREHOUSE;
 
-export default function WareHouse({ posts }) {
+export default function WareHouse({ posts, posts1 }) {
     const likeBtnClick = () => {
         console.log("likeBtnClick");
     }
+    console.log("Warehouse画面");
+    console.log(posts1);
     return (
         <>
             <Header />
@@ -31,6 +33,26 @@ export default function WareHouse({ posts }) {
                                 year: "numeric",
                                 }
                             );
+
+                            let picSrc = "";
+                            let memberId = "";
+                            
+                            console.log("【warehouse_memberId】");
+                            console.log(post.properties.ID.number);
+                            
+                            for(let i = 0; i < posts1.length; i++){
+                                memberId = posts1[i].properties.ID.number;
+                                console.log("【memberId】");
+                                console.log(memberId);
+                                if(post.properties.ID.number == memberId){
+                                    picSrc = posts1[i].properties.PICTURE.files[0].external.url;
+                                    break;
+                                }
+                                
+                            }
+                            console.log("【picSrc】");
+                            console.log(picSrc);
+
                             return (
                                 <li key={post.id} className={styles.warehouse}>
                                     <Link href={`/warehouse/${post.id}`} >
@@ -50,13 +72,29 @@ export default function WareHouse({ posts }) {
                                         </h3>
                                     </Link>
                                     <div className={styles.listFooter}>
-                                        {/* <Image 
-                                            className={styles.personImg}
-                                            src={post.cover.external.url}
-                                            alt="personImg" 
-                                            layout="fill"
-                                            objectFit="contain"
-                                        /> */}
+                                        {/* <div className={styles.personImgWrapper}>
+                                            <span>
+                                                <Image 
+                                                    className={styles.personImg}
+                                                    src={picSrc}
+                                                    alt="personImg" 
+                                                    layout="fill"
+                                                    objectFit="contain"
+                                                />
+                                            </span>
+                                        </div> */}
+                                        <span className={styles.personImgWrapper}>
+                                            <Image 
+                                                className={styles.personImg}
+                                                src={picSrc}
+                                                alt="personImg" 
+                                                layout="fill"
+                                                objectFit="contain"
+                                            />
+                                        </span>
+                                        
+                                        
+                                        {/* <FontAwesomeIcon icon={faUser} className={styles.personImg} /> */}
                                         <div className={styles.postInfo}>
                                             <Text text={post.properties.Owner.rich_text} />
                                             {date}
@@ -137,7 +175,7 @@ export const getStaticProps = async () => {
     return {
       props: {
         posts: database_wareHouse,
-        posts1: database, 
+        posts1: database,
       },
       revalidate: 1,
     };
