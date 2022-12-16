@@ -6,7 +6,6 @@ import { databaseId } from "./index.js";
 import styles from "./post.module.css";
 import Image from "next/image";
 import Header from "../components/header";
-import Warehouse from "../components/index";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css'
 
@@ -199,8 +198,8 @@ export default function Post({ page, blocks }) {
           
           <Tabs>
             <TabList>
-              <Tab>詳細情報</Tab>
-              <Tab>Warehouse</Tab>
+              <Tab>INFO</Tab>
+              <Tab>WAREHOUSE</Tab>
             </TabList>
 
             <TabPanel>
@@ -236,10 +235,19 @@ export default function Post({ page, blocks }) {
           </table>
             </TabPanel>
             <TabPanel>
-              
-<Warehouse/>
-
-
+                                        <div className={styles.bookimgWrapper}>
+                                            <span>
+                                            <Image 
+                                  className={styles.bookimg}
+                                                    // src="http://books.google.com/books/content?id=LhwDswEACAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73RzWelwFfkSV-c0885s3idzxBz4PDivoPrDyMYAGHc-2SybI5KzCKNcF300sY9r4XoPVTjWOCFZh__G0pdX1bc1Ch457OFDnDEQi5mGZazCdz1nXrzwUP2hYdQ82QtlFEb1HBz&source=gbs_api"
+                                                    src = "/public/book.png"
+                                                    // alt="bookImg"
+                                                    // layout="fill" 
+                                                                          width={200} 
+                      height={250} 
+                                                />
+                                            </span>
+                                        </div>          
 
             </TabPanel>
           </Tabs>

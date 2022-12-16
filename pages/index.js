@@ -13,7 +13,7 @@ export default function MyApp({ posts }) {
     <div>
       <Header />
       <main className={styles.container}>
-        
+
 
         <ol className={styles.posts}>
           {posts.map((post) => {
