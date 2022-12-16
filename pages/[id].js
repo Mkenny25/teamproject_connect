@@ -4,6 +4,11 @@ import { getDatabase, getPage, getBlocks } from "../lib/notion";
 import Link from "next/link";
 import { databaseId } from "./index.js";
 import styles from "./post.module.css";
+import Image from "next/image";
+import Header from "../components/header";
+import Warehouse from "../components/index";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css'
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -160,26 +165,92 @@ export default function Post({ page, blocks }) {
   if (!page || !blocks) {
     return <div />;
   }
+  const date = new Date(page.created_time).toLocaleString(
+    "ja-JP",
+    {
+    month: "short",
+    year: "numeric",
+    }
+);
   return (
+    
     <div>
-      <Head>
-        <title>{page.properties.Name.title[0].plain_text}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <>
+      <Header />
       <article className={styles.container}>
-        <h1 className={styles.name}>
-          <Text text={page.properties.Name.title} />
-        </h1>
+        <div className={styles.leftSection}>
+          <div className={styles.imgWrapper}>
+            <Image 
+              className={styles.image}
+              src={page.properties.PICTURE.files[0].external.url}
+              alt="bookImg"
+              layout="fill" 
+              // width={200} 
+              // height={250} 
+            />
+          </div>
+          <div className={styles.nameInfo}>
+            <p><Text text={page.properties.NAME_KN.rich_text} /></p>
+            <h3><Text text={page.properties.Name.title} /></h3>
+            <p><Text text={page.properties.OCCUPATION.rich_text} /></p>
+          </div>
+        </div>
+        <div className={styles.rightSection}>
+          
+          <Tabs>
+            <TabList>
+              <Tab>詳細情報</Tab>
+              <Tab>Warehouse</Tab>
+            </TabList>
+
+            <TabPanel>
+            <table className={styles.table} >
+            <tr>
+              <td align="left">所属</td>
+              <td><p><Text text={page.properties.AFFLIATION.rich_text} /></p></td>
+            </tr>
+            <tr>
+              <td align="left">役職</td>
+              <td><p><Text text={page.properties.POSOTION.rich_text} /></p></td>
+            </tr>
+            <tr>
+              <td align="left">入社日</td>
+              <td>{date}</td>
+            </tr>
+            <tr>
+              <td align="left">社員ID</td>
+              <td><p>{page.properties.ID.number}</p></td>
+            </tr>
+            <tr>
+              <td align="left">自己紹介</td>
+              <td><p><Text text={page.properties.INTRODUCTION.rich_text} /></p></td>
+            </tr>
+            <tr>
+              <td align="left">スキル</td>
+              <td><p><Text text={page.properties.SKILL.rich_text} /></p></td>
+            </tr>
+            <tr>
+              <td align="left">趣味</td>
+              <td><p><Text text={page.properties.HOBBY.rich_text} /></p></td>
+            </tr>
+          </table>
+            </TabPanel>
+            <TabPanel>
+              
+<Warehouse/>
+
+
+
+            </TabPanel>
+          </Tabs>
+        </div>
         <section>
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
-          <Link href="/" className={styles.back}>
-            ← Go home
-          </Link>
         </section>
       </article>
+      </>
     </div>
   );
 }

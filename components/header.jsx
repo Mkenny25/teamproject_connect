@@ -8,12 +8,14 @@ const Header = () => {
   return (
     <>
       <div className={styles.header}>
+        <div className={styles.imgWrapper}>
         <Image 
           className="logo"
           src={logo} 
           alt="logo" 
           height={50} 
         />
+        </div>
         <HeaderRight />
       </div>
       <div className={styles.header_underbar}>

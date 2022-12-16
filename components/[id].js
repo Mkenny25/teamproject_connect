@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import { getDatabase_wareHouse, getPage_wareHouse, getBlocks_wareHouse } from "../../lib/notion";
+import { getDatabase_wareHouse, getPage_wareHouse, getBlocks_wareHouse } from "../lib/notion";
 import Link from "next/link";
-import { databaseId_wareHouse } from "./index.js";
-import styles from "../post.module.css";
+import { databaseId_wareHouse } from "./index.jsx";
+import styles from "../pages/post.module.css";
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -176,7 +176,7 @@ export default function Post({ page, blocks }) {
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
           <Link href="/" className={styles.back}>
-            ← Go homeaaa
+            ← Go home
           </Link>
         </section>
       </article>

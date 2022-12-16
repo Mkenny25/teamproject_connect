@@ -13,29 +13,23 @@ export default function MyApp({ posts }) {
     <div>
       <Header />
       <main className={styles.container}>
+        
 
         <ol className={styles.posts}>
           {posts.map((post) => {
-            const date = new Date(post.created_time).toLocaleString(
-                "ja-JP",
-                {
-                month: "short",
-                year: "numeric",
-                }
-            );
             return (
               <li key={post.id} className={styles.post}>
-                <div className={styles.imgWrapper}>
+                <Link href={`/${post.id}`} className={styles.link}>
+                  <div className={styles.imgWrapper}>
                     <Image 
-                      // className={styles.}
+                      className={styles.image}
                       src={post.properties.PICTURE.files[0].external.url}
                       alt="bookImg"
                       layout="fill" 
                       // width={200} 
                       // height={250} 
                     />
-                </div>
-                <Link href={`/${post.id}`} className={styles.link}>
+                  </div>
                     <div className={styles.nameInfo}>
                         <p><Text text={post.properties.NAME_KN.rich_text} /></p>
                         <h3><Text text={post.properties.Name.title} /></h3>
